@@ -1,1 +1,1 @@
-y用git提交的github上的readme文件
+y用git提交的github上的readme文件          用http协议之后在提交与ssh的不同之处
