@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		@font-face{
+			font-family: myfont;
+			src:url("font/华文楷体.ttf");
+		}
+		html,body{
+			height: 100%;
+			font-family:myfont;
+			margin: 0;
+			padding: 0
+		}
+		body{
+			background: linear-gradient(pink,white) no-repeat;
+			overflow: hidden;
+		}
+		.sxt-aixin{
+			width: 100%;
+			height: 100%;
+			perspective: 1200px;/*景深特效  观察者与z轴的平面距离*/
+		}
+		.aixin{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin: 140px auto 0;
+			-webkit-transform:rotate(45deg);
+			-moz-transform:rotate(45deg);
+			-ms-transform:rotate(45deg);
+			-o-transform:rotate(45deg);
+			transform:rotate(45deg);
+			position: relative;
+			animation: heartbeat 3s infinite ease-out;
+			/*动画：动画名 动画时间 执行的条件无限循环 相同速度*/
+		}
+		.aixin:before{
+			content: "";
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top:0 ;
+			left: -50px;
+			border-radius: 50%;
+			
+		}
+		.aixin:after{
+			content: "";
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top:-50px;
+			right: 0;
+			border-radius: 50%;
+
+		}
+		.aixin span{
+			position: absolute;
+			z-index: 99;/*有定位的情况才生效*/
+			font-size:20px;
+		    -webkit-transform:rotate(-45deg);
+			-moz-transform:rotate(-45deg);
+			-ms-transform:rotate(-45deg);
+			-o-transform:rotate(-45deg);
+			transform:rotate(-45deg);
+			left: -10px;
+			top: 18px;
+			animation: heartbeat2 2s infinite alternate linear;
+		}
+		@-webkit-keyframes heartbeat2{
+			0%{
+				color: white;
+			}
+			20%{
+				color: blue;
+			}
+			40%{
+				color: green;
+			}
+			60%{
+				color: purple;
+			}
+			80%{
+				color: black;
+			}
+			100%{
+				color: brown;
+			}
+		}
+		.aixin span a{
+			display: inline-block;
+			animation: heartbeat1 3s 1 ease-out;
+		}
+		@-webkit-keyframes heartbeat1{
+			0%{
+				transform: skew(180deg);
+				
+			}
+			100%{
+				transform: skew(0deg);
+				
+			}
+		}
+		@-webkit-keyframes heartbeat{
+			0%{
+			-webkit-transform:rotate(45deg) scale(0.7);
+			-moz-transform:rotate(45deg) scale(0.7);
+			-ms-transform:rotate(45deg) scale(0.7);
+			-o-transform:rotate(45deg) scale(0.7);
+			transform:rotate(45deg) scale(0.7);
+			}
+			100%{
+			-webkit-transform:rotate(45deg) scale(1.2);
+			-moz-transform:rotate(45deg) scale(1.2);
+			-ms-transform:rotate(45deg) scale(1.2);
+			-o-transform:rotate(45deg) scale(1.2);
+			transform:rotate(45deg) scale(1.2);
+			}
+		}/*讲一套现有的ccss的样式逐渐转换成为另一套*/
+		#aa{
+			position: absolute;
+			top: 10px;
+			line-height: 26px;
+			font-family:myfont;
+			font-size: 16px;
+			background: linear-gradient(red,#0f0,#00f,#000,green,blue,#cf0,#093,#0ee,#7ce,#44e,#66f,#ee6,#cc5,#10d,#47a,yellow);
+			height: 400px;
+			width: 800px;
+			-webkit-background-clip:text;
+			color: transparent;
+		}
+
+		#item{
+			position:absolute;
+			bottom: 220px;
+			left: 50%;
+			margin-left: -210px;
+			color: black;
+			font-family:myfont;
+		}
+		#item span{
+			display: inline-block;
+			font-size: 22px;
+			width: 30px;
+			height: 22px;
+			text-align: center;
+			background: linear-gradient(red,green,yellow,blue,#666);
+			-webkit-background-clip:text;
+			color: transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class="sxt-aixin">
+		<div class="aixin">
+			<span><a>I Love You</a></span>
+			<!-- 我们的距离，只有一颗心的距离，你中有我，我中有你。
+			            牵着你的手， 赋予我爱情的魔力，
+			            对你说着我爱你，一心一意，彼此相惜。
+			如果可以，我真想和你一直旅行。
+			            或许是某个未开发的荒凉小岛，或许是某座闻名遐迩的文化古城。
+			            我们可以沿途用镜头记录彼此的笑脸，和属于我们的风景。
+			            一起吃早餐，午餐，晚餐。或许吃得不好，可是却依旧为对方擦去嘴角的油渍。
+			            风景如何，其实并不重要。重要的是，你在我的身边。 -->
+
+		</div>
+		<div class="heartbeat">
+			<pre id="aa"></pre><!-- 保持文本的格式，保留空白和换行/**/ -->
+			<div id="w" style="display:none">
+			我们的距离，只有一颗心的距离，你中有我，我中有你。
+			            牵着你的手， 赋予我爱情的魔力，
+			            对你说着我爱你，一心一意，彼此相惜。
+			如果可以，我真想和你一直旅行。
+			            或许是某个未开发的荒凉小岛，或许是某座闻名遐迩的文化古城。
+			            我们可以沿途用镜头记录彼此的笑脸，和属于我们的风景。
+			            一起吃早餐，午餐，晚餐。或许吃得不好，可是却依旧为对方擦去嘴角的油渍。
+			            风景如何，其实并不重要。重要的是，你在我的身边。
+			</div>
+		</div>
+		<marquee id="item" behavior="alternate" direction="" width="600" onmouseover="stop()" onmouseout="start()" 
+		scrollamount=""></marquee>
+		<audio src="情书.mp3" autoplay="autoplay"></audio>
+				</div>
+	<script>
+	var i = 0;
+	var oWord = document.getElementById("w").innerHTML;
+	
+	function type(){
+		i++;
+		if(i>= 350){
+			i=0;
+		}
+		document.getElementById("aa").innerText = oWord.substring(0,i);
+	}
+	setInterval(type,200);
+	//id获取法 独一无二的
+	//Tagname()标签获取法 返回的值是一个数组的形式 
+	//ClassName()class名获取法 返回的值是一个数组的形式
+	var oItem = document.getElementById("item");
+	function Item(){
+		var date = "2017/04/11 10:41:57";
+		var date2 = new Date();
+		var date3  = date2.getTime() - new Date(date).getTime();
+		//console.log(date3);
+		var days =Math.floor(date3/(24*3600*1000));
+		var leavel = date3%(24*3600*1000);
+		var hours = Math.floor(leavel/(3600*1000));//时
+		//console.log(hours);
+		var leavel2 = leavel%(3600*1000);
+		//console.log(leavel2);
+		var minutes = Math.floor(leavel2/(60*1000));//分钟
+		var leavel3 = leavel2%(60*1000);
+		var seconds = Math.round(leavel3/1000);//秒钟
+		//console.log(seconds);
+		oItem.innerHTML = ("一路陪伴我们相识距今天有<span>"+days+"</span>天<span>"+hours+"</span>小时<span>"+minutes+"</span>分钟<span>"+seconds+"</span>秒");
+	}
+
+	setInterval(Item,1000);
+	
+	</script>
+</body>
+</html>
